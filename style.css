@@ -1,0 +1,121 @@
+@font-face {
+  font-family: minhafonte;
+  src: url('font/Saling\ Cinta.ttf');
+}
+
+body,
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{background-color: rgb(220, 186, 252);}
+
+.fotos {display: flex; padding: 20px; flex-wrap: wrap; max-width: 900px;margin: auto;}
+
+.fotos > div { flex: 1 1 200px; margin: 10px; box-shadow: 5px 5px 5px rgba(0, 0, 0, .25);}
+
+
+img {max-width: 100%;display: block;}
+
+
+a {
+  color: black;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+a:hover {
+  background: rgba(0, 0, 0, .21);
+}
+
+#logo { font-size: 4.5rem;
+font-family: minhafonte;margin-left: 20px;
+}
+
+#header {
+  box-sizing: border-box;
+  height: 90px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:  #ffe7f9;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+#menu a {
+  display: block;
+  padding: 0.5rem;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 90px;
+    right: 0px;
+    background:  #ffe7f9;
+    transition: 0.6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+  #nav.active #menu {
+    height: calc(100vh - 90px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  }
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #hamburger::after,
+  #hamburger::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #nav.active #hamburger {
+    border-top-color: transparent;
+  }
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+
+  #logo {font-size: 2.7rem;}
+}
